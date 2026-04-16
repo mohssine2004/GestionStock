@@ -57,9 +57,19 @@
                                  styleClass="btn-primary btn-full"
                                  ajax="false"/>
 
+                <div style="margin-top: 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                    <p style="color: #94a3b8; font-size: 12px; margin-bottom: 12px;">
+                        Nouvelle visite? <a href="#{facesContext.externalContext.request.contextPath}/" style="color: #3b82f6; text-decoration: none;">Retour à l'accueil</a>
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 15px; font-size: 12px;">
+                        <a href="#{facesContext.externalContext.request.contextPath}/pages/about.xhtml" style="color: #cbd5e1; text-decoration: none;">À propos</a>
+                        <span style="color: #475569;">|</span>
+                        <a href="#{facesContext.externalContext.request.contextPath}/pages/contact.xhtml" style="color: #cbd5e1; text-decoration: none;">Contact</a>
+                    </div>
+                </div>
             </h:form>
-
         </div>
+
     </div>
 </h:body>
 </html>

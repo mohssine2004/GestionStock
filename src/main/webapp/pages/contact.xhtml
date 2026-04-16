@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact — Gestion de Stock</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        body { background: linear-gradient(135deg, #08101e 0%, #0d1628 100%); color: #f1f5f9; font-family: 'DM Sans', sans-serif; }
+        .contact-container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px; }
+        .navbar-brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .navbar-logo-box { width: 30px; height: 30px; background: linear-gradient(135deg, #3b82f6, #06b6d4); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #fff; }
+        .navbar-links { display: flex; gap: 20px; }
+        .navbar-links a { color: #cbd5e1; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .navbar-links a:hover { color: #3b82f6; }
+        .section-title { font-size: 28px; font-weight: 700; margin-bottom: 20px; color: #60a5fa; }
+        .section-content { font-size: 15px; line-height: 1.8; color: #cbd5e1; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        .contact-info-card { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 10px; padding: 30px; }
+        .info-item { margin-bottom: 25px; }
+        .info-icon { font-size: 24px; color: #60a5fa; margin-bottom: 10px; }
+        .info-label { font-size: 13px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+        .info-value { font-size: 15px; color: #f1f5f9; font-weight: 500; }
+        .info-value a { color: #60a5fa; text-decoration: none; }
+        .info-value a:hover { text-decoration: underline; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #f1f5f9; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #f1f5f9; font-family: 'DM Sans', sans-serif; transition: all 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #3b82f6; background: rgba(59,130,246,0.1); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .btn-submit { background: linear-gradient(135deg, #3b82f6, #06b6d4); color: white; padding: 12px 28px; border: none; border-radius: 8px; font-weight: 500; cursor: pointer; transition: transform 0.3s; width: 100%; }
+        .btn-submit:hover { transform: translateY(-2px); }
+        .social-links { display: flex; gap: 15px; margin-top: 25px; }
+        .social-links a { width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: rgba(59,130,246,0.1); border-radius: 50%; color: #60a5fa; text-decoration: none; transition: all 0.3s; }
+        .social-links a:hover { background: #60a5fa; color: white; transform: translateY(-2px); }
+        footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; color: #64748b; font-size: 13px; }
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .navbar { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="navbar-brand">
+            <div class="navbar-logo-box"><i class="fa fa-boxes-stacked"/></div>
+            GestionStock
+        </div>
+        <div class="navbar-links">
+            <a href="#{facesContext.externalContext.request.contextPath}/">Accueil</a>
+            <a href="#{facesContext.externalContext.request.contextPath}/pages/about.xhtml">À propos</a>
+            <a href="#{facesContext.externalContext.request.contextPath}/pages/contact.xhtml" style="color: #3b82f6;">Contact</a>
+            <a href="#{facesContext.externalContext.request.contextPath}/pages/login.xhtml">Se connecter</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="contact-container">
+        <!-- Header -->
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h1 class="section-title">Nous contacter</h1>
+            <p class="section-content">
+                Vous avez des questions ou des suggestions ? Nous serions heureux de vous entendre.
+                Veuillez remplir le formulaire ci-dessous ou utiliser nos coordonnées de contact.
+            </p>
+        </div>
+
+        <!-- Contact Grid -->
+        <div class="contact-grid">
+            <!-- Contact Information -->
+            <div class="contact-info-card">
+                <h2 style="margin-bottom: 25px; color: #f1f5f9; font-size: 20px;">Informations de contact</h2>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa fa-map-marker-alt"/></div>
+                    <div class="info-label">Adresse</div>
+                    <div class="info-value">
+                        123 Rue de la Technologie<br/>
+                        10000 Rabat, Maroc
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa fa-phone"/></div>
+                    <div class="info-label">Téléphone</div>
+                    <div class="info-value">
+                        <a href="tel:+212612345678">+212 (6) 12 34 56 78</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa fa-envelope"/></div>
+                    <div class="info-label">Email</div>
+                    <div class="info-value">
+                        <a href="mailto:contact@gestionstock.com">contact@gestionstock.com</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa fa-clock"/></div>
+                    <div class="info-label">Heures de travail</div>
+                    <div class="info-value">
+                        Lundi - Vendredi: 09:00 - 18:00<br/>
+                        Samedi: 10:00 - 14:00<br/>
+                        Dimanche: Fermé
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px;">
+                    <div class="info-label" style="margin-bottom: 15px;">Suivez-nous</div>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"/></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"/></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"/></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"/></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div>
+                <h2 style="margin-bottom: 25px; color: #f1f5f9; font-size: 20px;">Formulaire de contact</h2>
+
+                <h:form id="contactForm" styleClass="contact-form" prependId="false">
+                    <p:messages id="messages" showDetail="true" closable="true"/>
+
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <p:inputText id="name"
+                                     placeholder="Votre nom"
+                                     styleClass="form-control"
+                                     required="true"
+                                     requiredMessage="Le nom est obligatoire."/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <p:inputText id="email"
+                                     type="email"
+                                     placeholder="votre@email.com"
+                                     styleClass="form-control"
+                                     required="true"
+                                     requiredMessage="L'email est obligatoire."
+                                     validatorMessage="Email invalide."/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet *</label>
+                        <p:inputText id="subject"
+                                     placeholder="Sujet de votre message"
+                                     styleClass="form-control"
+                                     required="true"
+                                     requiredMessage="Le sujet est obligatoire."/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <p:inputTextarea id="message"
+                                         placeholder="Votre message..."
+                                         styleClass="form-control"
+                                         required="true"
+                                         requiredMessage="Le message est obligatoire."
+                                         rows="5"/>
+                    </div>
+
+                    <p:commandButton value="Envoyer le message"
+                                     icon="fa fa-paper-plane"
+                                     styleClass="btn-submit"
+                                     ajax="false"/>
+                </h:form>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div style="margin-top: 60px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 10px; padding: 30px; text-align: center;">
+            <h2 class="section-title">Localisation</h2>
+            <p class="section-content" style="margin-bottom: 20px;">
+                Retrouvez-nous sur la carte ci-dessous. N'hésitez pas à nous rendre visite !
+            </p>
+            <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 40px; text-align: center; color: #94a3b8;">
+                <i class="fa fa-map" style="font-size: 40px; margin-bottom: 15px; color: #60a5fa;"/><br/>
+                Carte interactive à intégrer
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 GestionStock — Tous droits réservés. | Développé par ELADDAOUI · MOHSSINE · JADID6HARON
+    </footer>
+</h:body>
+</html>
+

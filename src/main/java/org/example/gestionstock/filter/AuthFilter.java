@@ -24,6 +24,8 @@ public class AuthFilter implements Filter {
 
         // ── Pages et ressources publiques (pas besoin de connexion) ──
         boolean isPublic = uri.contains("/pages/login.xhtml")
+                || uri.contains("/pages/about.xhtml")
+                || uri.contains("/pages/contact.xhtml")
                 || uri.contains("/index.xhtml")
                 || uri.endsWith("/")
                 || uri.contains("/pages/error403.xhtml")

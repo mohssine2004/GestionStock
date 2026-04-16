@@ -87,7 +87,15 @@
                     </span>
                     </div>
                 </div>
-                <h:form styleClass="logout-form">
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-top: 15px; font-size: 12px;">
+                    <a href="#{request.contextPath}/pages/about.xhtml" style="display: block; color: #cbd5e1; text-decoration: none; padding: 5px 0; transition: color 0.2s;">
+                        <i class="fa fa-circle-info" style="margin-right: 8px;"/> À propos
+                    </a>
+                    <a href="#{request.contextPath}/pages/contact.xhtml" style="display: block; color: #cbd5e1; text-decoration: none; padding: 5px 0; transition: color 0.2s;">
+                        <i class="fa fa-envelope" style="margin-right: 8px;"/> Contact
+                    </a>
+                </div>
+                <h:form styleClass="logout-form" style="margin-top: 15px;">
                     <p:commandButton value="Déconnexion"
                                      icon="fa fa-sign-out-alt"
                                      action="#{loginBean.logout}"
